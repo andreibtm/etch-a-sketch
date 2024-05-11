@@ -1,7 +1,7 @@
 const container = document.querySelector("#container");
 
 function createGrid(rows, cols) {
-    let pixelSize = 1000 / rows;
+    let pixelSize = 960/ rows;
 
     container.innerHTML = ""; // Clear container before creating new grid
     for (let i = 0; i < rows; i++) {
@@ -11,6 +11,13 @@ function createGrid(rows, cols) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
         cell.style.cssText = `width: ${pixelSize}px; height: ${pixelSize}px`;
+        // Add event listener for click on each cell
+        cell.addEventListener('click', function() {
+        this.style.backgroundColor = 'black'; // Change background color to black
+        });
+        cell.addEventListener('dblclick', function() {
+        this.style.backgroundColor = 'antiquewhite'; // Change background color to black
+        });
         row.appendChild(cell);
         }
         container.appendChild(row);
